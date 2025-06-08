@@ -19,7 +19,7 @@ const app = express();
 // ✅ Updated CORS Setup: Allow both local and Vercel frontend
 app.use(cors({
   origin: [
-    "http://localhost:5173"
+    "https://moms-kitchen-ai-app-llsn-git-main-mohiturkude8237s-projects.vercel.app"
   ],
   credentials: true,
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
