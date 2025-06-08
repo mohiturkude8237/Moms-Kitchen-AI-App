@@ -7,25 +7,35 @@ router.post('/', async (req, res) => {
     const { fullname, email, password } = req.body;
 
     try {
-        //check if user already exists
+        const lowerEmail = email.toLowerCase(); // Normalize email
 
-        const existinguser = await User.findOne({ email });
+        // Check if user already exists
+        const existinguser = await User.findOne({ email: lowerEmail });
+        console.log("🔍 Existing user:", existinguser); // Debug
+
         if (existinguser) {
             return res.status(400).json({
-                error: 'user already exists'
+                error: 'User already exists'
             });
         }
-        
-    // 🔐 Hash the password before saving
-    const hashedPassword = await bcrypt.hash(password, 10); // 10 salt rounds
 
-        //create mew user
-        const newUser = new User({fullname, email, password:hashedPassword});
+        const hashedPassword = await bcrypt.hash(password, 10);
+
+        const newUser = new User({
+            fullname,
+            email: lowerEmail,
+            password: hashedPassword
+        });
+
         await newUser.save();
 
-        res.status(201).json({message: 'Signup successful! Please check your email to verify your account.'});
-    }catch(err){
-        res.status(500).json({error: "server error"});
+        res.status(201).json({
+            message: 'Signup successful! Please check your email to verify your account.'
+        });
+
+    } catch (err) {
+        console.error("Signup error:", err); // Debug
+        res.status(500).json({ error: "Server error" });
     }
 });
 
