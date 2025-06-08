@@ -10,8 +10,8 @@ const bodyParser = require("body-parser");
 const aiRoutes = require("./routes/aiRoutes");
 const recipeRoutes = require("./routes/recipeRoutes");
 const auth = require("./middleware/auth");
-const signupRoutes = require("./routes/signup");
-const loginRoutes = require("./routes/login");
+const signupRoutes = require("./routes/signupRoutes");
+const loginRoutes = require("./routes/loginRoutes");
 const contactRoutes = require('./routes/contactRoutes');
 
 const app = express();
