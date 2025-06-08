@@ -109,7 +109,7 @@ const Signup = () => {
     e.preventDefault();
     try {
       const res = await axios.post(
-        "http://localhost:5000/api/signup",
+        "https://moms-kitchen-ai-app.onrender.com/api/signup",
         form
       );
       setMessage(res.data.message);
