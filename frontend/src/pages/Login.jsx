@@ -125,7 +125,7 @@ const Login = () => {
 
     try {
       const res = await axios.post(
-        "http://localhost:5000/api/login",
+        "https://moms-kitchen-ai-app-llsn-git-main-mohiturkude8237s-projects.vercel.app/login",
         form
       );
       setMessage(res.data.message || "Login successful!!");
