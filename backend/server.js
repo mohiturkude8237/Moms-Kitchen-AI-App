@@ -35,8 +35,8 @@ app.use(bodyParser.json());
 // API Routes
 app.use("/api", aiRoutes);
 app.use("/api/recipes", recipeRoutes);
-app.use("/api/signup", signup);
-app.use("/api/login", login);
+app.use("/api/signup", signupRoutes);
+app.use("/api/login", loginRoutes);
 app.use("/api/contact", contactRoutes);
 
 // 🔐 Protected route example
