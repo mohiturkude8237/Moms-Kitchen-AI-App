@@ -98,7 +98,7 @@ const SearchRecipe = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post('http://localhost:5000/api/ai/suggest', {
+      const res = await axios.post('https://moms-kitchen-ai-app.onrender.com/api/ai/suggest', {
         ingredients: ingredients.split(',').map((i) => i.trim()),
         preferences: preferences.split(',').map((p) => p.trim()),
         mealType,
